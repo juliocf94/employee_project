@@ -2,16 +2,16 @@ import pandas as pd
 
 from employee import Employee
 
-
 class EmployeeService:
 
     def load_employees(self, path):
 
         dataframe = pd.read_excel(path)
+        rows  = dataframe.iterrows()
 
         employees = []
 
-        for _, row in dataframe.iterrows():
+        for index, row in rows:
 
             employee = Employee(
                 row["id"],
